@@ -1,14 +1,14 @@
 function School(name, minYears) {
-  if (!name) {
+  const MIN_YEARS = minYears;
+  const SCHOOL_NAME = name.trim();
+
+  if (!typeof SCHOOL_NAME === String) {
     throw Error("Не указано название школы");
   }
 
-  if (!minYears) {
+  if (!parseInt(MIN_YEARS)) {
     throw new Error("Не указано минимальное количество лет");
   }
-
-  const MIN_YEARS = minYears;
-  const SCHOOL_NAME = name;
 
   this.checkAge = function (age) {
     if (age < MIN_YEARS) {
@@ -73,7 +73,7 @@ function School(name, minYears) {
   };
 }
 
-var autoSchool = new School("Парус", 18);
+const autoSchool = new School("  парус  ", 18);
 autoSchool.welcome();
 autoSchool.welcome("Тест");
 autoSchool.welcome("", 15);
